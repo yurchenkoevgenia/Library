@@ -1,0 +1,23 @@
+# Java build output
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local notes
+agent.md
