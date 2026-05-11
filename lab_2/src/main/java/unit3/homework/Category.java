@@ -7,16 +7,16 @@ public class Category {
     private long id;
     private String name;
     private String description;
-    private String image;
+
+    private List<Book> bookList;
 
     public Category() {
     }
 
-    public Category(long id, String name, String description, String image) {
+    public Category(long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.image = image;
     }
 
     public long getId() {
@@ -43,48 +43,12 @@ public class Category {
         this.description = description;
     }
 
-    public String getImage() {
-        return image;
+    public List<Book> getBookList() {
+        return bookList;
     }
 
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    private Product product;
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Category(long id, String name, String description, String image, Product product) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.image = image;
-        this.product = product;
-    }
-
-    private List<Product> productList;
-
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Product> productList) {
-        this.productList = productList;
-    }
-
-    public Category(long id, String name, String description, String image, List<Product> productList) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.image = image;
-        this.productList = productList;
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 
     @Override
@@ -93,7 +57,6 @@ public class Category {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", image='" + image + '\'' +
                 '}';
     }
 }

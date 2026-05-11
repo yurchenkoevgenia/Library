@@ -6,56 +6,22 @@ import java.util.List;
 public class Order {
 
     private long id;
-    private Date dataCreateOrder;
-    private boolean Status;
+    private Date orderDate;
+    private boolean status;
+    private String placeType;
 
-    private String payment;
-    private String delivery;
-
-    private Client client;
-
-    private List<ProductHasOrder> productHasOrderList;
-
-    public List<ProductHasOrder> getProductHasOrderList() {
-        return productHasOrderList;
-    }
-
-    public Order(long id, Date dataCreateOrder, boolean status, String payment, String delivery, Client client, List<ProductHasOrder> productHasOrderList) {
-        this.id = id;
-        this.dataCreateOrder = dataCreateOrder;
-        Status = status;
-        this.payment = payment;
-        this.delivery = delivery;
-        this.client = client;
-        this.productHasOrderList = productHasOrderList;
-    }
-
-    public void setProductHasOrderList(List<ProductHasOrder> productHasOrderList) {
-        this.productHasOrderList = productHasOrderList;
-    }
+    private Reader reader;
+    private List<BookInOrder> bookInOrderList;
 
     public Order() {
     }
 
-    public Order(long id, Date dataCreateOrder, boolean status, String payment, String delivery, Client client) {
+    public Order(long id, Date orderDate, boolean status, String placeType, Reader reader) {
         this.id = id;
-        this.dataCreateOrder = dataCreateOrder;
-        Status = status;
-        this.payment = payment;
-        this.delivery = delivery;
-        this.client = client;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", dataCreateOrder=" + dataCreateOrder +
-                ", Status=" + Status +
-                ", payment='" + payment + '\'' +
-                ", delivery='" + delivery + '\'' +
-                ", client=" + client +
-                '}';
+        this.orderDate = orderDate;
+        this.status = status;
+        this.placeType = placeType;
+        this.reader = reader;
     }
 
     public long getId() {
@@ -66,43 +32,54 @@ public class Order {
         this.id = id;
     }
 
-    public Date getDataCreateOrder() {
-        return dataCreateOrder;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public void setDataCreateOrder(Date dataCreateOrder) {
-        this.dataCreateOrder = dataCreateOrder;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
     public boolean isStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(boolean status) {
-        Status = status;
+        this.status = status;
     }
 
-    public String getPayment() {
-        return payment;
+    public String getPlaceType() {
+        return placeType;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment;
+    public void setPlaceType(String placeType) {
+        this.placeType = placeType;
     }
 
-    public String getDelivery() {
-        return delivery;
+    public Reader getReader() {
+        return reader;
     }
 
-    public void setDelivery(String delivery) {
-        this.delivery = delivery;
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 
-    public Client getClient() {
-        return client;
+    public List<BookInOrder> getBookInOrderList() {
+        return bookInOrderList;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setBookInOrderList(List<BookInOrder> bookInOrderList) {
+        this.bookInOrderList = bookInOrderList;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderDate=" + orderDate +
+                ", status=" + status +
+                ", placeType='" + placeType + '\'' +
+                ", reader=" + reader +
+                '}';
     }
 }

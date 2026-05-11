@@ -1,60 +1,54 @@
 package unit3.homework;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-
         Category category = new Category();
         category.setId(1L);
-        category.setName("Macbook Air");
-        category.setDescription("Найбільш тонкий і легкий ноутбук Apple");
-        category.setImage("/image/air.jpg");
+        category.setName("Programming");
+        category.setDescription("Books about programming and software development");
 
-        Product product = new Product();
-        product.setId(1L);
-        product.setName("Macbook Air M1 256");
-        product.setPrice(42000);
-        product.setPrice2(BigDecimal.valueOf(42000));
-        product.setDescription("Завдяки чипу Apple M1 найбільш тонкий і легкий ноутбук Apple зазнав вражаючих змін. Центральний процесор відтепер працює до 3,5 раза швидше. Графічний — до 5 разів.");
-        product.setCategory(category);
+        Book book = new Book();
+        book.setId(1L);
+        book.setTitle("Clean Code");
+        book.setAuthor("Robert C. Martin");
+        book.setDescription("A handbook of agile software craftsmanship");
+        book.setAvailability(true);
+        book.setCopies(3);
+        book.setCategory(category);
 
-        Client client = new Client();
-        client.setId(1L);
-        client.setFirstName("Oksana");
-        client.setLastName("Ivanenko");
-        client.setAge(20);
-        client.setEmail("oksana@example.com");
-        client.setPhone("+380501112233");
-        client.setAddress("Kyiv");
+        Reader reader = new Reader();
+        reader.setId(1L);
+        reader.setFirstName("Zhenya");
+        reader.setLastName("Yurchenko");
+        reader.setEmail("zhenya.yurchenko.14@gmail.com");
+        reader.setPhone("+380501234567");
 
         Order order = new Order();
         order.setId(1L);
-        order.setDataCreateOrder(new Date());
+        order.setOrderDate(new Date());
         order.setStatus(true);
-        order.setPayment("Card");
-        order.setDelivery("Nova Poshta");
-        order.setClient(client);
+        order.setPlaceType("abonement");
+        order.setReader(reader);
 
-        ProductHasOrder productHasOrder = new ProductHasOrder();
-        productHasOrder.setId(1L);
-        productHasOrder.setProduct(product);
-        productHasOrder.setOrder(order);
-        productHasOrder.setQuantity(1);
+        BookInOrder bookInOrder = new BookInOrder();
+        bookInOrder.setId(1L);
+        bookInOrder.setBook(book);
+        bookInOrder.setOrder(order);
+        bookInOrder.setQuantity(1);
 
-        category.setProduct(product);
-        category.setProductList(List.of(product));
-        product.setProductHasOrders(List.of(productHasOrder));
-        client.setOrderList(List.of(order));
-        order.setProductHasOrderList(List.of(productHasOrder));
+        category.setBookList(List.of(book));
+        book.setBookInOrderList(List.of(bookInOrder));
+        reader.setOrderList(List.of(order));
+        order.setBookInOrderList(List.of(bookInOrder));
 
         System.out.println(category);
-        System.out.println(product);
-        System.out.println(client);
+        System.out.println(book);
+        System.out.println(reader);
         System.out.println(order);
-        System.out.println(productHasOrder);
+        System.out.println(bookInOrder);
     }
 }

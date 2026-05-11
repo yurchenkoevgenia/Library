@@ -1,20 +1,18 @@
 package unit3.homework;
 
-public class ProductHasOrder {
+public class BookInOrder {
 
     private long id;
-
-    private Product product;
+    private Book book;
     private Order order;
-
     private int quantity;
 
-    public ProductHasOrder() {
+    public BookInOrder() {
     }
 
-    public ProductHasOrder(long id, Product product, Order order, int quantity) {
+    public BookInOrder(long id, Book book, Order order, int quantity) {
         this.id = id;
-        this.product = product;
+        this.book = book;
         this.order = order;
         this.quantity = quantity;
     }
@@ -27,12 +25,12 @@ public class ProductHasOrder {
         this.id = id;
     }
 
-    public Product getProduct() {
-        return product;
+    public Book getBook() {
+        return book;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public Order getOrder() {
@@ -53,9 +51,9 @@ public class ProductHasOrder {
 
     @Override
     public String toString() {
-        return "ProductHasOrder{" +
+        return "BookInOrder{" +
                 "id=" + id +
-                ", product=" + product +
+                ", book=" + book +
                 ", order=" + order +
                 ", quantity=" + quantity +
                 '}';
