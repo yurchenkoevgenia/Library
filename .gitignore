@@ -2,14 +2,20 @@
 target/
 build/
 out/
+**/out/
+**/target/
+**/build/
 *.class
+**/*.class
 *.jar
 *.war
 *.ear
 
 # IDE files
 .idea/
+**/.idea/
 *.iml
+**/*.iml
 .classpath
 .project
 .settings/
