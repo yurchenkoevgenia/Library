@@ -13,9 +13,11 @@ import org.example.lab5.entity.BookCopy;
 import org.example.lab5.entity.Category;
 import org.example.lab5.entity.LibraryCard;
 import org.example.lab5.entity.Reader;
+import org.example.lab5.util.DatabaseCleaner;
 import org.hibernate.SessionFactory;
 
 public class LibraryDemo {
+    private final SessionFactory sessionFactory;
     private final CategoryDao categoryDao;
     private final BookDao bookDao;
     private final BookCopyDao bookCopyDao;
@@ -23,6 +25,7 @@ public class LibraryDemo {
     private final LibraryCardDao libraryCardDao;
 
     public LibraryDemo(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
         this.categoryDao = new CategoryDao(sessionFactory);
         this.bookDao = new BookDao(sessionFactory);
         this.bookCopyDao = new BookCopyDao(sessionFactory);
@@ -31,6 +34,8 @@ public class LibraryDemo {
     }
 
     public void run() {
+        DatabaseCleaner.clean(sessionFactory);
+
         Category fiction = new Category("Fiction");
         Book dune = new Book("Dune", "Frank Herbert", "9780441013593");
         dune.addCopy(new BookCopy("DUNE-001"));
