@@ -14,7 +14,7 @@ public class ReaderDao extends AbstractDao<Reader> {
     }
 
     public Optional<Reader> findByEmailWithDetails(String email) {
-        return executeRead(session -> session.createQuery(
+        return executeHql(session -> session.createQuery(
                         "select distinct r from Reader r " +
                                 "left join fetch r.libraryCard " +
                                 "left join fetch r.reservedBooks " +
@@ -22,6 +22,39 @@ public class ReaderDao extends AbstractDao<Reader> {
                         Reader.class)
                 .setParameter("email", email)
                 .uniqueResultOptional());
+    }
+
+    public List<String> findEmailsNative() {
+        return executeNative(session -> session.createNativeQuery(
+                        "select r.email from readers r order by r.email",
+                        String.class)
+                .getResultList());
+    }
+
+    public List<String> findEmailsHql() {
+        return executeHql(session -> session.createQuery(
+                        "select r.email from Reader r order by r.email",
+                        String.class)
+                .getResultList());
+    }
+
+    public List<String> findReservedBookTitlesNative(String email) {
+        return executeNative(session -> session.createNativeQuery(
+                        "select b.title from readers r " +
+                                "join reader_book_reservations rbr on rbr.reader_id = r.id " +
+                                "join books b on b.id = rbr.book_id " +
+                                "where r.email = :email order by b.title",
+                        String.class)
+                .setParameter("email", email)
+                .getResultList());
+    }
+
+    public List<String> findReservedBookTitlesHql(String email) {
+        return executeHql(session -> session.createQuery(
+                        "select b.title from Reader r join r.reservedBooks b where r.email = :email order by b.title",
+                        String.class)
+                .setParameter("email", email)
+                .getResultList());
     }
 
     public Reader reserveBooks(Long readerId, List<Long> bookIds) {

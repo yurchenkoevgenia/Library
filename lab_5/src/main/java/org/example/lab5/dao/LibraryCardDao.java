@@ -11,7 +11,7 @@ public class LibraryCardDao extends AbstractDao<LibraryCard> {
     }
 
     public Optional<LibraryCard> findByCardNumber(String cardNumber) {
-        return executeRead(session -> session.createQuery(
+        return executeHql(session -> session.createQuery(
                         "from LibraryCard card where card.cardNumber = :cardNumber",
                         LibraryCard.class)
                 .setParameter("cardNumber", cardNumber)

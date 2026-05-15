@@ -72,6 +72,14 @@ public abstract class AbstractDao<T> {
         }
     }
 
+    protected <R> R executeNative(Function<Session, R> work) {
+        return executeRead(work);
+    }
+
+    protected <R> R executeHql(Function<Session, R> work) {
+        return executeRead(work);
+    }
+
     private void validate(T entity) {
         Set<ConstraintViolation<T>> violations = VALIDATOR.validate(entity);
         if (!violations.isEmpty()) {

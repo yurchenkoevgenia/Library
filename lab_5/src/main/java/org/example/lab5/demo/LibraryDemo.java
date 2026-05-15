@@ -75,5 +75,13 @@ public class LibraryDemo {
 
         System.out.println("Categories in DB: " + categoryDao.findAll().size());
         System.out.println("Cards in DB: " + libraryCardDao.findAll().size());
+        System.out.println("Native category names: " + categoryDao.findNamesNative());
+        System.out.println("HQL category names: " + categoryDao.findNamesHql());
+        System.out.println("Native book titles in Fiction: " + bookDao.findTitlesByCategoryNative("Fiction"));
+        System.out.println("HQL book titles in Fiction: " + bookDao.findTitlesByCategoryHql("Fiction"));
+        System.out.println("Native reader emails: " + readerDao.findEmailsNative());
+        System.out.println("HQL reader emails: " + readerDao.findEmailsHql());
+        System.out.println("Native reserved titles: " + readerDao.findReservedBookTitlesNative(email));
+        System.out.println("HQL reserved titles: " + readerDao.findReservedBookTitlesHql(email));
     }
 }
