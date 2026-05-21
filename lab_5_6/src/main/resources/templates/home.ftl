@@ -1,4 +1,4 @@
-<#import "fragments/layout.ftl" as layout>
+<#import "/fragments/layout.ftl" as layout>
 <@layout.page title="Головна">
     <section class="hero">
         <h1>Веб-додаток Library</h1>
