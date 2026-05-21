@@ -1,4 +1,4 @@
-<#import "/fragments/layout.ftl" as layout>
+<#import "fragments/layout.ftl" as layout>
 <@layout.page title="Книги">
     <div class="page-head">
         <div>

@@ -26,8 +26,8 @@ public class HomeController {
         this.readerRepository = readerRepository;
     }
 
-    @GetMapping("/")
-    public String index(Model model) {
+    @GetMapping({"/", "/index", "/home"})
+    public String home(Model model) {
         List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
         List<Book> books = bookRepository.findAllByOrderByTitleAsc();
         List<Reader> readers = readerRepository.findAllByOrderByFullNameAsc();
@@ -37,6 +37,11 @@ public class HomeController {
         model.addAttribute("bookCount", books.size());
         model.addAttribute("readerCount", readers.size());
         model.addAttribute("reservedBookCount", reservedBooks);
-        return "index";
+        return "dashboard";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboardRedirect() {
+        return "redirect:/";
     }
 }
