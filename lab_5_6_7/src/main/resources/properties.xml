@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</entry>
+    <entry key="hibernate.connection.url">jdbc:mysql://localhost:3306/library_lab?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC</entry>
+    <entry key="hibernate.connection.username">evgenia</entry>
+    <entry key="hibernate.connection.password">zhenia18</entry>
+    <entry key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</entry>
+    <entry key="hibernate.hbm2ddl.auto">update</entry>
+    <entry key="hibernate.show_sql">true</entry>
+    <entry key="hibernate.format_sql">true</entry>
+    <entry key="hibernate.highlight_sql">true</entry>
+    <entry key="hibernate.use_sql_comments">true</entry>
+</properties>
